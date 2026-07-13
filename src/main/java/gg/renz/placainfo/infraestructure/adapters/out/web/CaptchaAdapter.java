@@ -1,7 +1,7 @@
 package gg.renz.placainfo.infraestructure.adapters.out.web;
 
-import gg.renz.placainfo.infraestructure.dtos.http.CloudflareCaptchaRequest;
-import gg.renz.placainfo.infraestructure.dtos.http.CloudflareCaptchaResponse;
+import gg.renz.placainfo.infraestructure.shared.dtos.http.CloudflareCaptchaRequest;
+import gg.renz.placainfo.infraestructure.shared.dtos.http.CloudflareCaptchaResponse;
 import gg.renz.placainfo.domain.ports.out.CaptchaPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

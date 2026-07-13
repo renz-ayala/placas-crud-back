@@ -1,8 +1,9 @@
 package gg.renz.placainfo.infraestructure.adapters.in.controller;
 
+import gg.renz.placainfo.domain.model.Plate;
 import gg.renz.placainfo.domain.ports.in.GetPlateReport;
-import gg.renz.placainfo.infraestructure.dtos.http.PlateRequest;
-import gg.renz.placainfo.infraestructure.dtos.http.PlateResponse;
+import gg.renz.placainfo.infraestructure.shared.dtos.http.PlateRequest;
+import gg.renz.placainfo.infraestructure.shared.dtos.http.PlateResponse;
 import gg.renz.placainfo.domain.ports.out.CaptchaPort;
 import gg.renz.placainfo.domain.ports.in.GetPlateInformation;
 import lombok.RequiredArgsConstructor;
@@ -29,14 +30,43 @@ public class PlatesController {
                     PlateResponse.error(data.numPlaca(), "El captcha es inválido/expirado", HttpStatus.BAD_REQUEST)
             );
         }
-        PlateResponse response = getPlateInformation.execute(data.numPlaca());
-        return switch (response.status()) {
-            case OK -> ResponseEntity.ok(response);
-            case NOT_FOUND -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-            case BAD_REQUEST -> ResponseEntity.badRequest().body(response);
-            case INTERNAL_SERVER_ERROR -> ResponseEntity.internalServerError().body(response);
-            default -> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-        };
+
+        try {
+            Plate plate = getPlateInformation.execute(data.numPlaca());
+
+            if ( plate == null) {
+                var notFoundResponse = PlateResponse.error(
+                        data.numPlaca(),
+                        "La placa no existe en los registros",
+                        HttpStatus.NOT_FOUND
+                );
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(notFoundResponse);
+            }
+
+            var successResponse = new PlateResponse(
+                    plate.getPlateNumber(),
+                    plate.getMake(),
+                    plate.getModel(),
+                    plate.getColor(),
+                    plate.getManufactureYear(),
+                    plate.getOwnerId(),
+                    plate.getState(),
+                    plate.getRegistrationDate(),
+                    plate.getObservations(),
+                    "Operación correcta",
+                    HttpStatus.OK
+            );
+
+            return ResponseEntity.ok(successResponse);
+        } catch (Exception e) {
+            log.error("Error crítico al consultar placa {}", data.numPlaca(), e);
+            var errorServer = PlateResponse.error(
+                    data.numPlaca(),
+                    "Hubo un error en la operación",
+                    HttpStatus.INTERNAL_SERVER_ERROR
+            );
+            return ResponseEntity.internalServerError().body(errorServer);
+        }
     }
 
     @PostMapping(value = "/obtener-reporte", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_PDF_VALUE)

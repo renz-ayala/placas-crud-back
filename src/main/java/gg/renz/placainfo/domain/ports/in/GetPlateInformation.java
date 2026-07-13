@@ -1,7 +1,7 @@
 package gg.renz.placainfo.domain.ports.in;
 
-import gg.renz.placainfo.infraestructure.dtos.http.PlateResponse;
+import gg.renz.placainfo.domain.model.Plate;
 
 public interface GetPlateInformation {
-    PlateResponse execute(String numero);
+    Plate execute(String number);
 }

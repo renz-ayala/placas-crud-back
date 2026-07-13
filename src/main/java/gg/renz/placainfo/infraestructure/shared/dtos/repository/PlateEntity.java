@@ -1,4 +1,4 @@
-package gg.renz.placainfo.infraestructure.dtos.repository;
+package gg.renz.placainfo.infraestructure.shared.dtos.repository;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

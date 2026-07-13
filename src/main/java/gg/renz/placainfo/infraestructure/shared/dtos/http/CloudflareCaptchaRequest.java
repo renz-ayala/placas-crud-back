@@ -1,4 +1,4 @@
-package gg.renz.placainfo.infraestructure.dtos.http;
+package gg.renz.placainfo.infraestructure.shared.dtos.http;
 
 public record CloudflareCaptchaRequest(
         String secret,
