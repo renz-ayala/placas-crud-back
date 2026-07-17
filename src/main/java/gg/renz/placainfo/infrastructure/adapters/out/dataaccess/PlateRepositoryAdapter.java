@@ -1,9 +1,9 @@
-package gg.renz.placainfo.infraestructure.adapters.out.dataaccess;
+package gg.renz.placainfo.infrastructure.adapters.out.dataaccess;
 
 import gg.renz.placainfo.domain.model.Plate;
 import gg.renz.placainfo.domain.ports.out.PlateRepositoryPort;
-import gg.renz.placainfo.infraestructure.adapters.out.dataaccess.jpa.PlateSpringJpa;
-import gg.renz.placainfo.infraestructure.shared.dtos.repository.PlateEntity;
+import gg.renz.placainfo.infrastructure.adapters.out.dataaccess.jpa.PlateSpringJpa;
+import gg.renz.placainfo.infrastructure.shared.dtos.repository.PlateEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

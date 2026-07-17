@@ -1,4 +1,4 @@
-package gg.renz.placainfo.infraestructure.config;
+package gg.renz.placainfo.infrastructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

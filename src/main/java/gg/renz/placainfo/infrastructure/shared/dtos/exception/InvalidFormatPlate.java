@@ -1,4 +1,4 @@
-package gg.renz.placainfo.infraestructure.shared.dtos.exception;
+package gg.renz.placainfo.infrastructure.shared.dtos.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

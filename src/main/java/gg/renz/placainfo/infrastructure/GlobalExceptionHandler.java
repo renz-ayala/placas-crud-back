@@ -1,7 +1,7 @@
-package gg.renz.placainfo.infraestructure;
+package gg.renz.placainfo.infrastructure;
 
-import gg.renz.placainfo.infraestructure.shared.dtos.exception.InvalidFormatPlate;
-import gg.renz.placainfo.infraestructure.shared.dtos.http.PlateResponse;
+import gg.renz.placainfo.infrastructure.shared.dtos.exception.InvalidFormatPlate;
+import gg.renz.placainfo.infrastructure.shared.dtos.http.PlateResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

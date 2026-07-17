@@ -1,7 +1,7 @@
-package gg.renz.placainfo.infraestructure.adapters.out.web;
+package gg.renz.placainfo.infrastructure.adapters.out.web;
 
 import gg.renz.placainfo.domain.ports.out.FormatPort;
-import gg.renz.placainfo.infraestructure.shared.dtos.exception.InvalidFormatPlate;
+import gg.renz.placainfo.infrastructure.shared.dtos.exception.InvalidFormatPlate;
 import org.springframework.stereotype.Service;
 
 @Service

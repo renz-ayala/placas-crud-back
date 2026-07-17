@@ -1,9 +1,9 @@
-package gg.renz.placainfo.infraestructure.adapters.in.controller;
+package gg.renz.placainfo.infrastructure.adapters.in.controller;
 
 import gg.renz.placainfo.domain.model.Plate;
 import gg.renz.placainfo.domain.ports.in.GetPlateReport;
-import gg.renz.placainfo.infraestructure.shared.dtos.http.PlateRequest;
-import gg.renz.placainfo.infraestructure.shared.dtos.http.PlateResponse;
+import gg.renz.placainfo.infrastructure.shared.dtos.http.PlateRequest;
+import gg.renz.placainfo.infrastructure.shared.dtos.http.PlateResponse;
 import gg.renz.placainfo.domain.ports.out.CaptchaPort;
 import gg.renz.placainfo.domain.ports.in.GetPlateInformation;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package gg.renz.placainfo.infraestructure.adapters.out.report;
+package gg.renz.placainfo.infrastructure.adapters.out.report;
 
 import gg.renz.placainfo.domain.model.Plate;
 import gg.renz.placainfo.domain.ports.out.PlateRepositoryPort;

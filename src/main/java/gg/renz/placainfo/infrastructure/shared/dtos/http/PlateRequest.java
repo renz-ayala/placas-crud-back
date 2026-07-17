@@ -1,4 +1,4 @@
-package gg.renz.placainfo.infraestructure.shared.dtos.http;
+package gg.renz.placainfo.infrastructure.shared.dtos.http;
 
 public record PlateRequest(
         String numPlaca,
