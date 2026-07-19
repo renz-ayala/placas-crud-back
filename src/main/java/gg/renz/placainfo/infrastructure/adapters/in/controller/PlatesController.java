@@ -7,6 +7,7 @@ import gg.renz.placainfo.infrastructure.shared.dtos.http.PlateResponse;
 import gg.renz.placainfo.domain.ports.out.CaptchaPort;
 import gg.renz.placainfo.domain.ports.in.GetPlateInformation;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "${cors.origin.allowed}")
 @RestController
 @RequestMapping("/placas")
 @RequiredArgsConstructor
