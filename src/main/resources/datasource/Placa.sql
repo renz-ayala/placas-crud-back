@@ -35,3 +35,22 @@ INSERT ALL
     INTO SCHEMA_.PLACA (numero_placa, marca, modelo, color, anio_fabricacion, propietario_dni, estado, observaciones)
     VALUES ('JKL012', 'Ford', 'Ranger', 'Azul Metálico', 2023, '32165498E', 'ALERTA', 'Pendiente de verificación de motor')
 SELECT 1 FROM DUAL;
+
+-------------------------------------
+CREATE SCHEMA EXTRANET
+CREATE TABLE EXTRANET.PLACA (
+                                id_placa        SERIAL PRIMARY KEY,
+                                numero_placa    VARCHAR(10) NOT NULL UNIQUE,
+                                marca           VARCHAR(50),
+                                modelo          VARCHAR(50),
+                                color           VARCHAR(30),
+                                anio_fabricacion NUMERIC(4),
+                                propietario_dni  VARCHAR(15),
+                                estado          VARCHAR(20) DEFAULT 'ACTIVO',
+                                fecha_registro  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                observaciones   VARCHAR(500),
+
+                                CONSTRAINT check_estado CHECK (estado IN ('ACTIVO', 'INACTIVO', 'ALERTA', 'ROBADO'))
+);
+
+select * from EXTRANET.placa
